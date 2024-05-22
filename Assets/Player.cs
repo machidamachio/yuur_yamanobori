@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float moveSpeed = 10;
+    float moveSpeed = 5.0f;
 
     public Rigidbody rb;
     bool grounded;
-    float jumpPower = 600;
+    float jumpPower = 500;
 
     void Start()
     {
@@ -20,24 +20,34 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed * Time.deltaTime);
+            transform.position += moveSpeed * transform.forward * Time.deltaTime;
         }
-
+        
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += transform.TransformDirection(Vector3.back * moveSpeed * Time.deltaTime);
+            transform.position -= moveSpeed * transform.forward * Time.deltaTime;
         }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(new Vector3(0, -0.5f, 0));
-        }
-
+        
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(new Vector3(0, 0.5f, 0));
+            transform.position += moveSpeed * transform.right * Time.deltaTime;
         }
-
+        
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position -= moveSpeed * transform.right * Time.deltaTime;
+        }
+        
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0,0.5f,0));
+        }
+                
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(new Vector3(0,-0.5f,0));
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (grounded == true)
