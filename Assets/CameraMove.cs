@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (-50.0f < theta)
+            if (-80.0f < theta)
             {
                 transform.Rotate(new Vector3(-0.5f, 0, 0));
                 theta += -0.5f;
@@ -25,7 +25,7 @@ public class CameraMove : MonoBehaviour
         
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (theta < 50.0f)
+            if (theta < 80.0f)
             {
                 transform.Rotate(new Vector3(0.5f, 0, 0));
                 theta += 0.5f;

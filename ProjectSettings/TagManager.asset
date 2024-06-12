@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stage
   - Ground
+  - Syougaibutu
+  - JumpGround
   layers:
   - Default
   - TransparentFX

@@ -55,6 +55,19 @@ public class Player : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpPower);
             }
         }
+
+        if (transform.position.y < -15)
+        {
+            transform.position = new Vector3(0, 1.8f, 0);
+        }
+
+    }
+    private void OnCollisionStay(Collision hit)
+    {
+            if (hit.gameObject.tag == "Syougaibutu")
+            {
+                transform.position = new Vector3(0, 1.8f, 0);
+            }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,6 +75,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+        }
+
+        if (collision.gameObject.tag == "JumpGround")
+        {
+            rb.AddForce(Vector3.up * jumpPower *2);
         }
     }
 
