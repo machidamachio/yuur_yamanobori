@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Syougaibutu
   - JumpGround
+  - Cannon
+  - Goal
   layers:
   - Default
   - TransparentFX

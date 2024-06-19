@@ -81,6 +81,17 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpPower *2);
         }
+
+        if (collision.gameObject.tag == "Cannon")
+        {
+            rb.AddForce(Vector3.forward * 4000);
+        }
+
+        if (collision.gameObject.tag == "Goal")
+        {
+            Debug.Log ("当たった");
+            rb.AddForce(Vector3.forward * -3000);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -90,4 +101,6 @@ public class Player : MonoBehaviour
             grounded = false;
         }
     }
+
+    
 }
